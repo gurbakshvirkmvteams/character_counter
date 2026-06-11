@@ -7,7 +7,7 @@
 
 body {
     padding: 0 20px;
-
+    background-image: var(--body-bg);
 }
 
 :root {
@@ -31,8 +31,9 @@ body {
     --input-border: RGB(64, 66, 84);
     --input-color: RGB(18, 19, 26);
     /* --dark-bg: url('assets/bg-dark-theme-DGqm16--.png'); */
-    --light-bg: url('assets/bg-light-theme-bkJNCFeM.png');
-        --highlight: RGB(254, 129, 89);
+    --body-bg: url('assets/bg-light-theme-bkJNCFeM.png');
+    --highlight: RGB(254, 129, 89);
+    --logo-bg: url('assets/logo-dark-theme-DqM3kyac.svg');
 }
 
 .main-container {
@@ -56,11 +57,33 @@ body {
     justify-content: space-between;
 }
 
+.logo-image {
+    height: 100%;
+    width: 100%;
+    background-image: var(--logo-bg)
+}
+
+.dark .light-icon,
+.dark .logo-light {
+    display: none;
+}
+
+.dark .logo-dark,
+.dark .dark-icon {
+    display: block;
+}
+
+.logo-dark,
+.dark-icon {
+    display: none;
+}
+
 .theme-icon-wrapper {
     height: 44px;
     width: 44px;
     border-radius: 8px;
     background-color: var(--light-button-background);
+    cursor: pointer;
 }
 
 .app-title {
@@ -87,20 +110,24 @@ body {
     padding: 18px;
     font-size: var(--section-headings);
     letter-spacing: var(--letter-spacing);
+    color: var(--input-border);
 }
 
 .main-input-textarea:focus {
     outline: 1px solid var(--purple-500);
     box-shadow: 0 0 8px var(--purple-500);
 }
-.input-limit, .warning-para{
-display: none;
-}
-.warning-para p{
-color: var(--highlight);
+
+.input-limit,
+.warning-para {
+    display: none;
 }
 
-.active{
+.warning-para p {
+    color: var(--highlight);
+}
+
+.active {
     display: block;
 }
 
@@ -114,6 +141,23 @@ color: var(--highlight);
     display: flex;
     flex-direction: row;
 }
+
+.checkbox-background {
+    position: relative;
+
+}
+
+/* 
+.checkbox-bg {
+    position: absolute;
+    left: 20px;
+        width: 16px;
+    height: 16px;
+    background-color: transparent;
+    border: 1px solid var(--input-border);
+    border-radius: 4px;
+    cursor: pointer;
+} */
 
 .input-right-section label,
 .input-left-section {
@@ -130,9 +174,15 @@ color: var(--highlight);
     border: 1px solid var(--input-border);
     background-color: transparent;
     padding: 4px 12px;
-    color: var(--neutral-set-6);
+    color: var(--input-border);
     outline: none;
     margin-left: 10px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 .input-right-section label input {
@@ -192,8 +242,20 @@ color: var(--highlight);
     display: flex;
     flex-direction: column;
     gap: 12px;
+    overflow: hidden;
 }
-.density-list p{
+
+.see-more-btn{
+    color: var(--para-font-color);
+    font-size: 20px;
+    display: none;
+    padding:20px 0 ;
+    cursor: pointer;
+}
+.see-more-btn-active{
+    display: block;
+}
+.density-list p {
     font-size: var(--para-font-size);
     color: var(--para-font-color);
 }
@@ -207,6 +269,7 @@ color: var(--highlight);
 
 .letter {
     text-transform: uppercase;
+    width: 14px;
 }
 
 .progress-bar {
@@ -215,6 +278,7 @@ color: var(--highlight);
     border-radius: 5px;
     overflow: hidden;
     width: 100%;
+    background: var(--light-button-background);
 }
 
 .progress-bar span {
@@ -225,34 +289,48 @@ color: var(--highlight);
     width: 50%;
     background-color: var(--purple-500);
 }
-.count{
+
+.count {
     display: flex;
-   white-space: nowrap;
-}   
+    white-space: nowrap;
+}
+
+.dark {
+    --title-color: RGB(242, 242, 247);
+    --light-button-background: RGB(42, 43, 55);
+    --para-font-color: RGB(228, 228, 239);
+    --border-light: RGB(64, 66, 84);
+    --purple-400: RGB(211, 160, 250);
+    --purple-500: RGB(194, 124, 248);
+    --yellow-500: RGB(255, 159, 0);
+    --orange-500: RGB(254, 129, 89);
+    --input-border: RGB(228, 228, 239);
+    --input-color: RGB(228, 228, 239);
+    --body-bg: url('assets/bg-dark-theme-DGqm16--.png');
+}
 
 @media (prefers-color-scheme: dark) {
     .logo-light {
-        display: none;
+        /* display: none; */
     }
 
     .light-icon {
-        display: none;
+        /* display: none; */
     }
-
+/* 
     :root {
-        /* --title-color: RGB(242, 242, 247);
-        --light-button-background: RGB(42, 43, 55);;
+        --title-color: RGB(242, 242, 247);
+        --light-button-background: RGB(42, 43, 55);
         --para-font-color: RGB(228, 228, 239);
-                --border-light: RGB(64, 66, 84);
+        --border-light: RGB(64, 66, 84);
         --purple-400: RGB(211, 160, 250);
         --purple-500: RGB(194, 124, 248);
         --yellow-500: RGB(255, 159, 0);
         --orange-500: RGB(254, 129, 89);
         --input-border: RGB(228, 228, 239);
-        --input-color:RGB(228, 228, 239); */
-        /* --dark-bg: url('assets/bg-dark-theme-DGqm16--.png'); */
-
-    }
+        --input-color: RGB(228, 228, 239);
+        --body-bg: url('assets/bg-dark-theme-DGqm16--.png');
+    } */
 }
 
 @media (max-width:768px) {

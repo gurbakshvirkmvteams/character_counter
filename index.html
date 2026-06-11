@@ -17,17 +17,17 @@
     <header class="main-container">
         <div class="navbar flex-vertical-center">
             <div class="logo">
-                <span class="logo-light"><img src="assets/logo-dark-theme-DqM3kyac.svg" alt="logo" /></span>
-                <span class="logo-dark"><img src="assets/logo-light-theme-CmDmyjmN.svg" alt="logo" /></span>
+                <span class="logo-light"><img src="assets/logo-light-theme-CmDmyjmN.svg" alt="logo" /></span>
+                <span class="logo-dark"><img src="assets/logo-dark-theme-DqM3kyac.svg" alt="logo" /></span>
             </div>
             <div class="theme-icon flex-center">
-                <div class="theme-icon-wrapper flex-center">
+                <div class="theme-icon-wrapper flex-center" id="changeThemeButton">
                     <span class=" dark-icon flex-center">
-                        <svg xmlns='http://www.w3.org/2000/svg' width='22' height='22' fill='none' viewBox='0 0 22 22'>
+                        <svg class="flex-center" xmlns='http://www.w3.org/2000/svg' width='22' height='22' fill='none'
+                            viewBox='0 0 22 22'>
                             <g clip-path='url(#a)'>
-                                <path stroke='#12131A' stroke-linecap='round' stroke-linejoin='round'
-                                    stroke-width='1.98'
-                                    d='M20.125 11.877A7.333 7.333 0 1 1 10.124 1.875a9.168 9.168 0 1 0 10 10.002Z' />
+                                <path stroke='#fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.98'
+                                    d='M11 1.833v1.834m0 14.666v1.834M3.666 11H1.833m3.955-5.212L4.49 4.492m11.72 1.296 1.297-1.296M5.788 16.215 4.49 17.512m11.72-1.296 1.297 1.296M20.166 11h-1.833m-2.75 0a4.583 4.583 0 1 1-9.167 0 4.583 4.583 0 0 1 9.167 0Z' />
                             </g>
                             <defs>
                                 <clipPath id='a'>
@@ -39,8 +39,9 @@
                     <span class="light-icon flex-center">
                         <svg xmlns='http://www.w3.org/2000/svg' width='22' height='22' fill='none' viewBox='0 0 22 22'>
                             <g clip-path='url(#a)'>
-                                <path stroke='#fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.98'
-                                    d='M11 1.833v1.834m0 14.666v1.834M3.666 11H1.833m3.955-5.212L4.49 4.492m11.72 1.296 1.297-1.296M5.788 16.215 4.49 17.512m11.72-1.296 1.297 1.296M20.166 11h-1.833m-2.75 0a4.583 4.583 0 1 1-9.167 0 4.583 4.583 0 0 1 9.167 0Z' />
+                                <path stroke='#12131A' stroke-linecap='round' stroke-linejoin='round'
+                                    stroke-width='1.98'
+                                    d='M20.125 11.877A7.333 7.333 0 1 1 10.124 1.875a9.168 9.168 0 1 0 10 10.002Z' />
                             </g>
                             <defs>
                                 <clipPath id='a'>
@@ -68,11 +69,13 @@
         <div class="sub-input flex-vertical-center input-wrapper">
             <div class=" input-right-section">
                 <label class="flex-vertical-center">
-                    <input type="checkbox" id="spacesCheckbox">
+                    <input type="checkbox" id="spacesCheckbox" class="checkbox-background">
+                    <!-- <span class="checkbox-bg"></span> -->
                     Exclude Spaces
                 </label>
                 <div class="limit-wrapper flex-vertical-center"> <label class="flex-vertical-center">
-                        <input type="checkbox" id="inputLimitCheckbox">
+                        <input type="checkbox" id="inputLimitCheckbox" class="checkbox-background">
+                        <!-- <span class="checkbox-bg"></span> -->
                         Set Character Limit
                     </label>
                     <div class="input-limit"><input type="number" id="inputLimit">
@@ -97,17 +100,18 @@
                 <p>Sentence Count</p>
             </div>
         </div>
-
         <div class="letter-density">Letter Density</div>
         <div class="density-list" id="densityList">
-            <div class="density flex-vertical-center">
+            <!-- <div class="density flex-vertical-center">
                 <span class="letter">a</span>
                 <div class="progress-bar" style="width: 80%;"><span></span></div>
                 <span class="count">1200 times</span>
-            </div>
+            </div> -->
             <p>No characters found. Start typing to see letter density.</p>
         </div>
+        <div class="see-more-btn" id="seeMoreBtn">See more</div>
     </main>
     <script src="script.js"></script>
 </body>
+
 </html>
