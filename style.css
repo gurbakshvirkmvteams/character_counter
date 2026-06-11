@@ -287,7 +287,7 @@ input::-webkit-inner-spin-button {
     height: 100%;
     top: 0;
     width: 50%;
-    background-color: var(--purple-500);
+    background-color: var(--purple-400);
 }
 
 .count {

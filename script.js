@@ -29,6 +29,8 @@ let inpLimitValue = 0;
 const readTotalCharactersPerMinute = 500;
 let inputLimitCheckboxValue = "";
 let excludeCheckbox = "";
+let globalletterDensity = {};
+let currentInputArrayValues = ""
 inputLimit.addEventListener('input', (e) => {
     inpLimitValue = e.target.value;
     const impv = inputbox.maxLength = inpLimitValue
@@ -87,7 +89,9 @@ inputbox.addEventListener('input', (e) => {
     // letter density filter
     var count = 0
     const inputArrayValues = inputValue.split('');
+    currentInputArrayValues = inputArrayValues;
     const letterDensity = {};
+    globalletterDensity = letterDensity;
     inputArrayValues.forEach((value) => {
         const upperCaseValue = value.toUpperCase();
 
@@ -115,16 +119,16 @@ const densityFnc = (inputArrayValues, letterDensity) => {
     })
 
     if (filteredAlphabets.length > 0) {
-        densityList.innerHTML = filteredAlphabets.slice(0, seeMoreValue ? filteredAlphabets.length : 5).map((alphabet) => {
-            const width = (alphabet.count / filteredWidth.length) * 100;
-            // console.log(width.toFixed(2));
-            return `
-         <div class="density flex-vertical-center">
-            <span class="letter">${alphabet.letter}</span>
-            <div class="progress-bar"><span style="width: ${width}%;"></span></div> 
-            <span class="count ">${alphabet.count} (${width.toFixed(2)}%)</span>
-        </div>
-    `;
+            densityList.innerHTML = filteredAlphabets.slice(0, seeMoreValue ? filteredAlphabets.length : 5).map((alphabet) => {
+                const width = (alphabet.count / filteredWidth.length) * 100;
+                // console.log(width.toFixed(2));
+                return `
+            <div class="density flex-vertical-center">
+                <span class="letter">${alphabet.letter}</span>
+                <div class="progress-bar"><span style="width: ${width}%;"></span></div> 
+                <span class="count ">${alphabet.count} (${width.toFixed(2)}%)</span>
+            </div>
+        `;
         }).join('');
     } else {
         densityList.innerHTML = `<p>No characters found. Start typing to see letter density.</p>`
@@ -140,4 +144,5 @@ const densityFnc = (inputArrayValues, letterDensity) => {
 seeMoreBtn.addEventListener('click', () => {
     seeMoreValue = !seeMoreValue
       seeMoreBtn.innerText = seeMoreValue ? "See Less" : "See More";
+   densityFnc(currentInputArrayValues, globalletterDensity);
 })
