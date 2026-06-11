@@ -32,6 +32,7 @@ body {
     --input-color: RGB(18, 19, 26);
     /* --dark-bg: url('assets/bg-dark-theme-DGqm16--.png'); */
     --light-bg: url('assets/bg-light-theme-bkJNCFeM.png');
+        --highlight: RGB(254, 129, 89);
 }
 
 .main-container {
@@ -92,6 +93,16 @@ body {
     outline: 1px solid var(--purple-500);
     box-shadow: 0 0 8px var(--purple-500);
 }
+.input-limit, .warning-para{
+display: none;
+}
+.warning-para p{
+color: var(--highlight);
+}
+
+.active{
+    display: block;
+}
 
 .input-wrapper {
     justify-content: space-between;
@@ -109,6 +120,7 @@ body {
     font-size: var(--para-font-size);
     color: var(--para-font-color);
     gap: 10px;
+    height: 29px;
 }
 
 .input-limit input {
@@ -120,6 +132,7 @@ body {
     padding: 4px 12px;
     color: var(--neutral-set-6);
     outline: none;
+    margin-left: 10px;
 }
 
 .input-right-section label input {
@@ -180,6 +193,10 @@ body {
     flex-direction: column;
     gap: 12px;
 }
+.density-list p{
+    font-size: var(--para-font-size);
+    color: var(--para-font-color);
+}
 
 .density {
     gap: 16px;
@@ -208,6 +225,10 @@ body {
     width: 50%;
     background-color: var(--purple-500);
 }
+.count{
+    display: flex;
+   white-space: nowrap;
+}   
 
 @media (prefers-color-scheme: dark) {
     .logo-light {
